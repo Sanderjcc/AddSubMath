@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(136, 136, 240);
+    text-align: center;
+    margin: 0px;
+    font: 20px Arial;
+}
+
+header{
+    background-color: white;
+    
+}
+h1{
+    margin-top: 0px;
+    padding: 10px;
+}
+section{
+    background-color: aliceblue;
+    width: 500px;
+    margin: auto;
+}
