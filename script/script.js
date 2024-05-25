@@ -26,18 +26,33 @@ function send(){ //main function
         }
 
         // start of calculation
-        let root = ''
+        let difTemp = 0
+        let dif = ''
+        let double = 0
         let result = ''
 
         for (let cont = 1; cont <= 9; cont++){ // descobre o maior quadrado possível para o  primeiro grupo
-            if (groupNumbers[0] >= cont**2){
-                root = String(cont**2)
+            if (groupNumbers[0] < cont**2){
+                result = String(cont-1)
+                difTemp = Number(groupNumbers[0]) - Number(result)**2
+                double = result*2
                 
-            } else if (groupNumbers[0] < cont**2){
-                result += String(root)
-                console.log(`O quadrado mais  próximo de ${groupNumbers[0]} é ${cont-1}`)
+                /*console.log(`A diferença de  ${groupNumbers[0]} e ${result} é ${difference}`)*/
                 break
+                
             }    
+        }
+
+        for (let i = 1; i < groupNumbers.length; i++){
+            dif = String(difTemp) + groupNumbers[i]
+            while (true){
+                let dividend = Number(dif.slice(0, dif.length-1) )
+                let quocient = dividend/double
+                if ((double*10 + quocient) * quocient <= Number(dif)){
+                    console.log(`${double*10 + quocient} X ${quocient} <= ${dif}`)
+                    break
+                }
+            }
         }
     }
 }
