@@ -36,8 +36,6 @@ function send(){ //main function
                 result = String(cont-1)
                 difTemp = Number(groupNumbers[0]) - Number(result)**2
                 double = result*2
-                
-                /*console.log(`A diferença de  ${groupNumbers[0]} e ${result} é ${difference}`)*/
                 break
                 
             }    
@@ -45,12 +43,17 @@ function send(){ //main function
 
         for (let i = 1; i < groupNumbers.length; i++){
             dif = String(difTemp) + groupNumbers[i]
+            let dividend = Number(dif.slice(0, dif.length-1) )
+            let quocient = parseInt(dividend/double)
             while (true){
-                let dividend = Number(dif.slice(0, dif.length-1) )
-                let quocient = dividend/double
                 if ((double*10 + quocient) * quocient <= Number(dif)){
-                    console.log(`${double*10 + quocient} X ${quocient} <= ${dif}`)
+                    result += String(quocient)
+                    difTemp = Number(dif) - (double*10 + quocient) * quocient
+                    double = Number(result)*2
                     break
+                
+                } else {
+                    quocient--
                 }
             }
         }
